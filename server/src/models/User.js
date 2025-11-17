@@ -20,6 +20,34 @@ const userSchema = new mongoose.Schema({
     trim: true,
     maxlength: [50, 'Name cannot exceed 50 characters']
   },
+  // Extended profile fields
+  bio: {
+    type: String,
+    maxlength: [500, 'Bio cannot exceed 500 characters'],
+    default: ''
+  },
+  location: {
+    type: String,
+    trim: true,
+    default: ''
+  },
+  profilePicture: {
+    type: String, // URL to image
+    default: ''
+  },
+  phone: {
+    type: String,
+    trim: true,
+    match: [/^\+?[\d\s\-\(\)]+$/, 'Please enter a valid phone number'],
+    default: ''
+  },
+  backupEmail: {
+    type: String,
+    lowercase: true,
+    trim: true,
+    default: ''
+  },
+  // Medical and dietary info
   allergies: [{
     type: String,
     trim: true
@@ -28,16 +56,28 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true
   }],
+  emergencyContact: {
+    name: String,
+    phone: String,
+    relationship: String
+  },
   scanHistory: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Scan'
-  }]
+  }],
+  // Preferences
+  notifications: {
+    email: { type: Boolean, default: true },
+    safetyAlerts: { type: Boolean, default: true },
+    newFeatures: { type: Boolean, default: false }
+  }
 }, {
   timestamps: true
 });
 
-// Index for better query performance
+// Remove duplicate index - only keep this one
 userSchema.index({ email: 1 });
 userSchema.index({ createdAt: -1 });
 
+// FIX: Changed from 'userUser' to 'userSchema'
 module.exports = mongoose.model('User', userSchema);
