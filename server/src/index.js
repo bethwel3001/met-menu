@@ -6,6 +6,7 @@ const database = require('./config/database');
 // Import routes
 const authRoutes = require('./routes/auth');
 const scanRoutes = require('./routes/scan');
+const chatRoutes = require('./routes/chat');
 
 class Server {
   constructor() {
@@ -32,7 +33,7 @@ class Server {
       this.start();
       
     } catch (error) {
-      console.error('Server initialization failed:', error);
+      console.error(' Server initialization failed:', error);
       process.exit(1);
     }
   }
@@ -41,7 +42,7 @@ class Server {
     // CORS configuration
     this.app.use(cors({
       origin: process.env.NODE_ENV === 'production' 
-        ? ['https://your-production-domain.com'] 
+        ? ['https://production-domain.com'] 
         : ['http://localhost:3000', 'http://127.0.0.1:3000'],
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -83,6 +84,7 @@ class Server {
     // API routes
     this.app.use('/api/auth', authRoutes);
     this.app.use('/api/scan', scanRoutes);
+    this.app.use('/api/chat', chatRoutes);
 
     // Root endpoint
     this.app.get('/', (req, res) => {
@@ -146,12 +148,12 @@ class Server {
 
   start() {
     this.server = this.app.listen(this.port, () => {
-      console.log('MateMenu Server started successfully');
-      console.log(`Port: ${this.port}`);
-      console.log(`Environment: ${process.env.NODE_ENV}`);
-      console.log(`Database: ${database.isConnected ? 'Connected' : 'Disconnected'}`);
-      console.log(`API Health: http://localhost:${this.port}/api/health`);
-      console.log('Server time:', new Date().toISOString());
+      console.log(' MateMenu Server started successfully');
+      console.log(` Port: ${this.port}`);
+      console.log(` Environment: ${process.env.NODE_ENV}`);
+      console.log(` Database: ${database.isConnected ? 'Connected' : 'Disconnected'}`);
+      console.log(` API Health: http://localhost:${this.port}/api/health`);
+      console.log(' Server time:', new Date().toISOString());
     });
 
     // Graceful shutdown
