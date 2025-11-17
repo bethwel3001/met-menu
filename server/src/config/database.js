@@ -12,14 +12,8 @@ class Database {
         return;
       }
 
-      const options = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 5000,
-        socketTimeoutMS: 45000,
-      };
-
-      await mongoose.connect(process.env.MONGODB_URI, options);
+      // Remove deprecated options
+      await mongoose.connect(process.env.MONGODB_URI);
       
       this.isConnected = true;
       console.log('✅ MongoDB connected successfully');
