@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* Custom health-focused color palette */
+@theme {
+  --color-health-green: #10b981;
+  --color-health-red: #ef4444;
+  --color-health-yellow: #f59e0b;
+  --color-health-blue: #3b82f6;
+  --color-health-teal: #14b8a6;
+  --color-health-purple: #8b5cf6;
+  --color-health-orange: #f97316;
+  
+  --font-family-health: 'Nunito', system-ui, sans-serif;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 2s infinite;
+}
+
+.animate-progress {
+  animation: progress 1.5s ease-in-out infinite;
+}
+
+/* Health-focused custom styles */
+.health-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #14b8a6 100%);
+}
+
+.safety-green {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #065f46;
+}
+
+.safety-yellow {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #92400e;
+}
+
+.safety-red {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #991b1b;
+}
+
+/* Custom scrollbar for health app */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus styles for accessibility */
+.focus-health:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  border: 2px solid #f3f4f6;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
