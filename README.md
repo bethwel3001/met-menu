@@ -1,5 +1,9 @@
 # SafeMenu AI
-<img src="./images/image.png" alt="Twitter Cover" width="600">
+
+<p align="center">
+  <img src="./images/image.png" alt="Twitter Cover" width="600">
+</p>
+
 ## Overview
 SafeMenu AI is a health-focused application that helps users analyze meals for allergens and dietary compatibility. Using AI-powered analysis, users can scan food, upload menus, or type meal names to receive safety assessments tailored to their personal health profile.
 
@@ -27,20 +31,20 @@ SafeMenu AI is a health-focused application that helps users analyze meals for a
 4. Gemini for AI discussions
 
 *Development Tools*
-pnpm as package manager
-Minimal folder structure
-Clean, readable, and scalable codebase
+1. pnpm as package manager
+2. Minimal folder structure
+3. Clean, readable, and scalable codebase
 
 *Safety Assessment System*
-Green: Safe for consumption based on user profile
-Yellow: Moderate risk - requires caution or limited consumption
-Red: Contains allergens or incompatible ingredients
+1. Green: Safe for consumption based on user profile
+2. Yellow: Moderate risk - requires caution or limited consumption
+3. Red: Contains allergens or incompatible ingredients
 
 *Analysis Includes*
-Nutritional percentages (fat, sugar, glucose, starch, water)
-Common allergen detection (groundnuts, dairy, gluten, etc.)
-Dietary compatibility analysis
-Ingredient breakdown
+1. Nutritional percentages (fat, sugar, glucose, starch, water)
+2. Common allergen detection (groundnuts, dairy, gluten, etc.)
+3. Dietary compatibility analysis
+4. Ingredient breakdown
 
 *Target Users*
 1. Individuals with food allergies
@@ -59,4 +63,4 @@ Ingredient breakdown
 The application is designed to provide reliable, accurate food analysis while maintaining a simple and intuitive user experience for health-conscious individuals.
 
 ## Demo video link
-[LIVE](https://youtu.be/7w9wSA5x8h8)
+[LIVE VIDEO HERE](https://youtu.be/7w9wSA5x8h8)
